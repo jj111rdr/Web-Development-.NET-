@@ -14,7 +14,8 @@ namespace TutorialMVCNETapp.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var items = await _context.Items.Include(x=>x.SerialNumber).ToListAsync();
+            var items = await _context.Items.Include(x=>x.SerialNumber).
+                Include(y => y.Category).ToListAsync();
             return View(items);
         }
         public IActionResult CreateItem()

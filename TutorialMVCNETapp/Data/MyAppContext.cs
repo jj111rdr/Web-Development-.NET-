@@ -19,9 +19,14 @@ namespace TutorialMVCNETapp.Data
             modelBuilder.Entity<SerialNumber>().HasData(
                 new SerialNumber { Id = 10, Name = "SP 350", ItemId = 5 }
                 );
+            modelBuilder.Entity<Category>().HasData(
+                new Category { Id = 1, Name = "Input Devices"},
+                new Category { Id = 2, Name = "Output Devices" }
+                );
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<Item> Items { get; set; }
         public DbSet<SerialNumber> SerialNumbers { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }
