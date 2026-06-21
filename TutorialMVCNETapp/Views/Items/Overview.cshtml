@@ -1,4 +1,13 @@
 ﻿@model TutorialMVCNETapp.Models.Item
 @{
+    var msg = "Asslam o Alaikum!";
+    var items = new List<string> {"Keyboard", "Mouse", "Monitor", "Web Cam"};
 }
-<p>This is the name of the item is @Model.Name</p>
+<p>@msg</p>
+<p>The name of the item is @Model.Name</p>
+<ul>
+    @foreach(var item in items)
+    {
+        <li>@item</li>
+    }
+</ul>

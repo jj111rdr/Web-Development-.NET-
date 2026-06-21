@@ -1,0 +1,38 @@
+﻿@model List<TutorialMVCNETapp.Models.Item>
+
+@{
+    ViewData["Title"] = "Index Table";
+}
+
+<h2>Index</h2>
+
+<a asp-action="CreateItem" class="btn btn-info mb-3">Create Item</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Serial Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Price.ToString("F2") $
+                </td>
+                <td>
+                    @item.SerialNumber?.Name
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

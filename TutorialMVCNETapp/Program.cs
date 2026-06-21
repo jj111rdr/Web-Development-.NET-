@@ -1,8 +1,14 @@
 // Entry point of the application. Gives access to configurations, DI and other services.
+using Microsoft.EntityFrameworkCore;
+using TutorialMVCNETapp.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<MyAppContext>(options => 
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString"))
+);
 
 var app = builder.Build();
 

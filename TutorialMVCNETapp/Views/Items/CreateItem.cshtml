@@ -1,0 +1,17 @@
+﻿@model TutorialMVCNETapp.Models.Item
+@{
+    ViewData["Title"] = "Create";
+}
+<h2>Create new Item</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-control">
+        <label for="Name">Name</label>
+        <input type ="text" class="form-control" asp-for="Name"/>
+    </div>
+    <div class="form-control">
+        <label for="Price">Price</label>
+        <input type="number" class="form-control" asp-for="Price" />
+    </div>
+    <button type ="submit" class="form-control-lg" asp-for="Price">Submit</button>
+</form>
